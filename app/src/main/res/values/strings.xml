@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">AutoPet Feeder</string>
+    <string name="BemVindo">Bem Vindo ao AutoPet Feeder!</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Senha</string>
+    <string name="action_sign_in">Entrar</string>
+    <string name="action_sign_in_short">Entrar</string>
+    <string name="welcome">"Bem-vindo!"</string>
+    <string name="invalid_username">Usuário Inválido</string>
+    <string name="invalid_password">A senha deve ter mais que 5 caracteres</string>
+    <string name="login_failed">"Login Inválido"</string>
+    <string name="bemvindo_pets">Pets</string>
+    <string name="bemvindo_dieta">Dietas</string>
+    <string name="bemvindo_refeicao">Refeições</string>
+    <string name="bemvindo_alimentador">Alimentadores</string>
+    <string name="comando1_alimentador">Enviar Agendamento da Dieta</string>
+    <string name="comando2_alimentador">Despejar Ração</string>
+    <string name="comando3_alimentador">Limpar Agendamentos do Alimentador</string>
+    <string name="comando4_alimentador">Ativar FeedBack por Email</string>
+    <string name="comando5_alimentador">Desativar FeedBack por Email</string>
+
+</resources>

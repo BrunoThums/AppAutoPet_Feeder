@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="500dp"
+    android:layout_centerVertical="true"
+    android:layout_gravity="center"
+    android:background="@drawable/rounded_background">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtitulo_modifica_pet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="titulo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/txtclose_modifica_pet"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:text="X"
+            android:textSize="22sp"
+            android:layout_marginTop="7dp"
+            android:layout_alignParentEnd="true"
+            android:gravity="left"/>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/nome_modifica_dieta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        />
+    <EditText
+        android:id="@+id/animal_modifica_pet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Animal"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        />
+    <EditText
+        android:id="@+id/dtnascimento_modifica_pet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Data_Nascimento"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        />
+    <EditText
+        android:id="@+id/raca_modifica_pet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Raça"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        />
+    <EditText
+        android:id="@+id/porte_modifica_pet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Porte"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        />
+
+    <Button
+        android:id="@+id/btnsubmit_modifica_pet"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:text="Salvar"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+
+
+
+        />
+
+
+
+</LinearLayout>

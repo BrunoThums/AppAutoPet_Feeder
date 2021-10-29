@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SensorActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="44dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:text="Dados dos Sensores "
+            android:textAlignment="center"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/separador"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textView1"
+                android:layout_marginTop="2dp"
+                android:background="#ff9703" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+            <ImageView
+                android:id="@+id/calendario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/calendario"
+                android:clickable="true" />
+
+            <TextView
+                android:id="@+id/textViewLabelData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Data:"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+
+                />
+
+            <TextView
+                android:id="@+id/textViewData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="07/07/2007 12:00:30"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/separador2"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textView1"
+                android:layout_marginTop="2dp"
+                android:background="#ff9703" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/umidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/umidade"
+                android:clickable="true"
+
+                />
+
+            <TextView
+                android:id="@+id/textViewLabelUmidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:text="Umidade:"
+                android:textColor="@color/black"
+                android:textColorHint="#787676"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/textViewUmidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="65%"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/temperatura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:background="@drawable/temperatura"
+                android:clickable="true" />
+
+            <TextView
+                android:id="@+id/textViewLabelTemperatura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="28dp"
+                android:text="Temperatura:"
+                android:textColor="@color/black"
+                android:textColorHint="#787676"
+                android:textSize="15dp" />
+
+
+
+            <TextView
+                android:id="@+id/textViewTemperatura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+            android:text="30º"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+
+            />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/nivel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/nivel"
+                android:clickable="true" />
+
+            <TextView
+                android:id="@+id/textViewLabelNivel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Nível:"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+
+                />
+
+            <TextView
+                android:id="@+id/textViewNivel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="Cheio"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+
+                />
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/liberacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/racaocaindo_pequena"
+                android:clickable="true" />
+
+                <TextView
+                    android:id="@+id/textViewLabelLiberacao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_toEndOf="@+id/liberacao"
+                    android:text="Última liberação:"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/textViewDataLiberacao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_toEndOf="@+id/textViewLabelLiberacao"
+                    android:text=" 07/07/2021 12:00:00"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/textViewLabelQuantidadeRequisitada"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textViewDataLiberacao"
+                    android:layout_toEndOf="@+id/liberacao"
+                    android:text="Quantidade Requisitada: "
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/textViewQuantidadeRequisitada"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textViewDataLiberacao"
+                    android:layout_toEndOf="@+id/textViewLabelQuantidadeRequisitada"
+                    android:text="50 gramas"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/textViewLabelQuantidadedespejada"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textViewLabelQuantidadeRequisitada"
+                    android:layout_toEndOf="@+id/liberacao"
+                    android:text="Quantidade Despejada: "
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/textViewQuantidadeDespejada"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textViewQuantidadeRequisitada"
+
+                    android:layout_toEndOf="@+id/textViewLabelQuantidadedespejada"
+                    android:text="50 gramas "
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/textViewLabelStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textViewLabelQuantidadedespejada"
+                    android:layout_toEndOf="@+id/liberacao"
+                    android:text="Status:"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/textViewStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textViewQuantidadeDespejada"
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@+id/textViewLabelStatus"
+                    android:text="OK"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="40dp">
+
+            <Button
+                android:id="@+id/btn_atualizar_leitura_sensores"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Atualizar"
+                android:layout_centerInParent="true"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

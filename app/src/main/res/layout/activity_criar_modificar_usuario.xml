@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UsuarioActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-29dp"
+        tools:layout_editor_absoluteY="-138dp">
+
+        <Button
+            android:id="@+id/btnCriarModificarContaTelaCriarConta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextCelular"
+            android:layout_marginStart="136dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Criar Conta"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextCelular" />
+
+        <EditText
+            android:id="@+id/editTextNome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:ems="10"
+            android:layout_centerHorizontal="true"
+            android:hint="Nome"
+            android:inputType="textPersonName"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="98dp" />
+
+        <EditText
+            android:id="@+id/editTextDataNascimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextNome"
+            android:layout_marginTop="12dp"
+            android:ems="10"
+            android:hint="Data de Nascimento"
+            android:layout_centerHorizontal="true"
+            android:inputType="date"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNome"
+            tools:layout_editor_absoluteX="99dp" />
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextDataNascimento"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Email"
+            android:layout_centerHorizontal="true"
+            android:inputType="textEmailAddress"
+            app:layout_constraintTop_toBottomOf="@+id/editTextDataNascimento"
+            tools:layout_editor_absoluteX="98dp" />
+
+        <EditText
+            android:id="@+id/editTextTextSenha1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextEmail"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:layout_centerHorizontal="true"
+            android:hint="Senha"
+            android:inputType="textPassword"
+            app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
+            tools:layout_editor_absoluteX="99dp" />
+
+        <EditText
+            android:id="@+id/editTextTextSenha2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextTextSenha1"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:layout_centerHorizontal="true"
+            android:hint="Repita a Senha"
+            android:inputType="textPassword"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextSenha1"
+            tools:layout_editor_absoluteX="99dp" />
+
+        <EditText
+            android:id="@+id/editTextCelular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextTextSenha2"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:layout_centerHorizontal="true"
+            android:hint="Celular"
+            android:inputType="phone"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextSenha2"
+            tools:layout_editor_absoluteX="99dp" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

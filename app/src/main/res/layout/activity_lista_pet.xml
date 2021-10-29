@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="5dp"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    card_view:cardCornerRadius="5dp"
+    android:elevation="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/idPet"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+
+            android:text="#1"
+            android:textSize="22sp"
+            android:textColor="#000"
+            android:textStyle="bold"/>
+        
+        <TextView
+            android:id="@+id/nomePet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lulu"
+            android:textColor="#000"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/editPet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/deletePet"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="41dp"
+                android:layout_toStartOf="@+id/deletePet"
+                android:background="@drawable/edit_2"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                />
+
+            <ImageView
+                android:id="@+id/deletePet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/delete_2"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground" />
+
+            />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>
