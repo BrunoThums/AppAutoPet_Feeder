@@ -19,5 +19,12 @@
     <string name="comando3_alimentador">Limpar Agendamentos do Alimentador</string>
     <string name="comando4_alimentador">Ativar FeedBack por Email</string>
     <string name="comando5_alimentador">Desativar FeedBack por Email</string>
+    <string name="criar_conta">Criar Conta</string>
+    <string name="senha">Senha</string>
+    <string name="repita_a_senha">Repita a Senha</string>
+    <string name="celular">Celular</string>
+    <string name="data_de_nascimento">Data de Nascimento</string>
+    <string name="email">Email</string>
+    <string name="nome">Nome</string>
 
 </resources>

@@ -1,5 +1,8 @@
 package com.example.apf;
 
+import static com.example.apf.Utils.formataCelular;
+import static com.example.apf.Utils.formataData;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -43,13 +46,14 @@ public class UsuarioActivity extends AppCompatActivity {
                                                                  // se "usuario" recebido por parametro é igual a null então é porque estamos criando um usuario novo caso contrario estamos alterando as configurações de um usuario ja existente
 
         Button btnCriarModificarConta = (Button) findViewById(R.id.btnCriarModificarContaTelaCriarConta);
-        EditText editTextNome = (EditText) findViewById(R.id.editTextNome);
-        EditText editTextDataNascimento = (EditText) findViewById(R.id.editTextDataNascimento);
-        EditText editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        EditText editTextTextSenha1 = (EditText) findViewById(R.id.editTextTextSenha1);
-        EditText editTextTextSenha2 = (EditText) findViewById(R.id.editTextTextSenha2);
-        EditText editTextCelular = (EditText) findViewById(R.id.editTextCelular);
-
+        EditText editTextNome = (EditText) findViewById(R.id.txtNome);
+        EditText editTextDataNascimento = (EditText) findViewById(R.id.txtDataNascimento);
+        EditText editTextEmail = (EditText) findViewById(R.id.txtEmail);
+        EditText editTextTextSenha1 = (EditText) findViewById(R.id.txtSenha1);
+        EditText editTextTextSenha2 = (EditText) findViewById(R.id.txtSenha2);
+        EditText editTextCelular = (EditText) findViewById(R.id.txtCelular);
+        formataCelular(editTextCelular);
+        formataData(editTextDataNascimento);
 
         if(usuarioAserModificado!=null){
             btnCriarModificarConta.setText("Atualizar");
