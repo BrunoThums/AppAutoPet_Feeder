@@ -43,7 +43,7 @@
         android:id="@+id/horario_modifica_refeicao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Horario"
+        android:hint="Horario (hh:mm)"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         />

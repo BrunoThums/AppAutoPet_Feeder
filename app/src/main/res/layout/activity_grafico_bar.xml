@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/textViewIniciaoGraficoLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inicio: " />
+
+        <TextView
+            android:id="@+id/textDataInicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:drawableRight="@drawable/calendario3"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="88/88/8888" />
+
+        <TextView
+            android:id="@+id/textViewFimgraficoLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Fim: " />
+
+        <TextView
+            android:id="@+id/textDataFim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:drawablePadding="5dp"
+            android:drawableRight="@drawable/calendario3"
+            android:gravity="center"
+            android:text="88/88/8888" />
+
+        <Button
+            android:id="@+id/btn_atualizargraficobar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Ir" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/headerTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/textViewTotalLiberado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Liberado no Período: " />
+
+        <TextView
+            android:id="@+id/textTotalLiberado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:drawableRight="@drawable/racaototal2"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="0.07Kg" />
+    </LinearLayout>
+
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barchart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/headerTotal"
+        android:layout_marginTop="10dp" />
+
+
+
+</RelativeLayout>

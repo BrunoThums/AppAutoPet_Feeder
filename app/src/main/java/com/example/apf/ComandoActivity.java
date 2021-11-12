@@ -79,7 +79,7 @@ public class ComandoActivity extends AppCompatActivity {
                     novoComando.setComando("{\"liberar\":{\"quantidade\":\"" + quantidadeEmGramas + "\"}}");
                     novoComando.setComandoExecutado(false);
 
-                    Toast.makeText(ComandoActivity.this, "ID do alimentador: " + String.valueOf(novoComando.getIdalimentador()) + " Data: " + novoComando.getData() + " Comando: " + novoComando.getComando() + "Foi executado: " + novoComando.isComandoExecutado(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ComandoActivity.this, "ID do alimentador: " + String.valueOf(novoComando.getIdalimentador()) + " Data: " + novoComando.getData() + " Comando: " + novoComando.getComando() + "Foi executado: " + novoComando.isComandoExecutado(), Toast.LENGTH_SHORT).show();
                     Submit(novoComando);
 
                 } else {
@@ -95,7 +95,7 @@ public class ComandoActivity extends AppCompatActivity {
                         novoComando.setComando("{\"limpar\":{}}");
                         novoComando.setComandoExecutado(false);
 
-                        Toast.makeText(ComandoActivity.this, "ID do alimentador: " + String.valueOf(novoComando.getIdalimentador()) + " Data: " + novoComando.getData() + " Comando: " + novoComando.getComando() + "Foi executado: " + novoComando.isComandoExecutado(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(ComandoActivity.this, "ID do alimentador: " + String.valueOf(novoComando.getIdalimentador()) + " Data: " + novoComando.getData() + " Comando: " + novoComando.getComando() + "Foi executado: " + novoComando.isComandoExecutado(), Toast.LENGTH_SHORT).show();
                         Submit(novoComando);
 
                     }else {
@@ -116,7 +116,7 @@ public class ComandoActivity extends AppCompatActivity {
                                 novoComando.setComando("{\"envioDeEmail\":{\"email\":\"nulo\"}}");
                                 novoComando.setComandoExecutado(false);
 
-                                Toast.makeText(ComandoActivity.this, "ID do alimentador: " + String.valueOf(novoComando.getIdalimentador()) + " Data: " + novoComando.getData() + " Comando: " + novoComando.getComando() + "Foi executado: " + novoComando.isComandoExecutado(), Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(ComandoActivity.this, "ID do alimentador: " + String.valueOf(novoComando.getIdalimentador()) + " Data: " + novoComando.getData() + " Comando: " + novoComando.getComando() + "Foi executado: " + novoComando.isComandoExecutado(), Toast.LENGTH_SHORT).show();
                                 Submit(novoComando);
 
                             }else{
@@ -210,7 +210,11 @@ public class ComandoActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONArray response) {
                 JSONObject jsonObject = null;
-                for(int i=0 ; i<response.length(); i++){
+                if(response.length()==0){
+                    Toast.makeText(ComandoActivity.this, "Não há refeições cadastradas para serem enviadas ao alimentador", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                /*for(int i=0 ; i<response.length(); i++){
                     try{
 
                         jsonObject = response.getJSONObject(i);
@@ -218,8 +222,9 @@ public class ComandoActivity extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                }
-                Toast.makeText(ComandoActivity.this, "Response: " +response.toString(), Toast.LENGTH_SHORT).show();
+                }*/
+                //Toast.makeText(ComandoActivity.this, "Tamanho da Response: " +response.length(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ComandoActivity.this, "Response: " +response.toString(), Toast.LENGTH_SHORT).show();
 
                 //assim que recebermos todos os horarios e quantidades da dieta podemos enviar para o alimentador com o comando específico que inicia com a palavra "dieta"
 
@@ -233,14 +238,15 @@ public class ComandoActivity extends AppCompatActivity {
                 novoComando.setComando("{\"dieta\":"+response.toString()+"}");
                 novoComando.setComandoExecutado(false);
 
-                Toast.makeText(ComandoActivity.this, "ID do alimentador: " + String.valueOf(novoComando.getIdalimentador()) + " Data: " + novoComando.getData() + " Comando: " + novoComando.getComando() + "Foi executado: " + novoComando.isComandoExecutado(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ComandoActivity.this, "ID do alimentador: " + String.valueOf(novoComando.getIdalimentador()) + " Data: " + novoComando.getData() + " Comando: " + novoComando.getComando() + "Foi executado: " + novoComando.isComandoExecutado(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ComandoActivity.this, "O agendamento enviado é: "+response.toString(), Toast.LENGTH_LONG).show();
                 Submit(novoComando);
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(ComandoActivity.this, "Não foi possivel obter o agendamento de dieta para o alimentador", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ComandoActivity.this, "Não foi possivel obter o agendamento de dieta para o alimentador", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -256,7 +262,11 @@ public class ComandoActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONArray response) {
                 JSONObject jsonObject = null;
-                for(int i=0 ; i<response.length(); i++){
+                if(response.length()==0){
+                    Toast.makeText(ComandoActivity.this, "Não há um email válido cadastrado", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                /*for(int i=0 ; i<response.length(); i++){
                     try{
 
                         jsonObject = response.getJSONObject(i);
@@ -264,11 +274,10 @@ public class ComandoActivity extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                }
-                Toast.makeText(ComandoActivity.this, "Response: " +response.toString(), Toast.LENGTH_SHORT).show();
+                }*/
+                //Toast.makeText(ComandoActivity.this, "Response: " +response.toString(), Toast.LENGTH_SHORT).show();
 
                 //assim que recebermos o email do suaurio vinculado a esse alimentador podemos enviar o comando
-
                 SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
                 String dataTimestamp = s.format(new Date());
                 Comando novoComando = new Comando();
@@ -283,15 +292,15 @@ public class ComandoActivity extends AppCompatActivity {
                 }
                 novoComando.setComandoExecutado(false);
 
-                Toast.makeText(ComandoActivity.this, "ID do alimentador: " + String.valueOf(novoComando.getIdalimentador()) + " Data: " + novoComando.getData() + " Comando: " + novoComando.getComando() + "Foi executado: " + novoComando.isComandoExecutado(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(ComandoActivity.this, "ID do alimentador: " + String.valueOf(novoComando.getIdalimentador()) + " Data: " + novoComando.getData() + " Comando: " + novoComando.getComando() + "Foi executado: " + novoComando.isComandoExecutado(), Toast.LENGTH_SHORT).show();
                 Submit(novoComando);
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(ComandoActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(ComandoActivity.this, "Não foi possivel obter o email do usuario desse alimentador", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ComandoActivity.this, error.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(ComandoActivity.this, "Não foi possivel obter o email do usuario desse alimentador", Toast.LENGTH_LONG).show();
             }
         });
 

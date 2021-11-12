@@ -8,28 +8,23 @@ import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.apf.model.Comando;
 import com.example.apf.model.Sensor;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class SensorActivity extends AppCompatActivity {
 
     private String idAlimentadorSelecionado="";
     private TextView textViewData, textViewUmidade, textViewTemperatura, textViewNivel, textViewDataLiberacao, textViewQuantidadeRequisitada, textViewQuantidadeDespejada, textViewStatus;
-    private Button btnAtualizar;
+    private Button btnAtualizar, btnGerarGraficosUmidadeTemepratura, btnGerarGraficosLiberacoes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +34,7 @@ public class SensorActivity extends AppCompatActivity {
         //transforma a cor em preto do text header
         getSupportActionBar().setTitle(Html.fromHtml("<font color=\"black\">"+getString(R.string.app_name)+"</font>"));
 
+        //obtem o ID do alimentador selecionado
         Intent intent = getIntent();
         idAlimentadorSelecionado = intent.getStringExtra("idAlimentadorSelecionado"); //captura o id do alimentador selecionado, vem do AlimentadorAdapter
 
@@ -59,6 +55,30 @@ public class SensorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 getData();
+            }
+        });
+
+        btnGerarGraficosUmidadeTemepratura = findViewById(R.id.btn_gerar_grafico_umidade_temperatura);
+        btnGerarGraficosUmidadeTemepratura.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), GraficoLineActivity.class);
+                intent.putExtra("idAlimentadorSelecionado", String.valueOf(idAlimentadorSelecionado));
+                startActivity(intent);
+
+
+            }
+        });
+
+        btnGerarGraficosLiberacoes = findViewById(R.id.btn_gerar_grafico_liberacao);
+        btnGerarGraficosLiberacoes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), GraficoBarActivity.class);
+                intent.putExtra("idAlimentadorSelecionado", String.valueOf(idAlimentadorSelecionado));
+                startActivity(intent);
+
+
             }
         });
 
@@ -118,7 +138,7 @@ public class SensorActivity extends AppCompatActivity {
                         }
 
                     }else{
-                    //se for igual a null entao é um sensor que nunca enviou nenhuma informação, entao vamos preencher o textfield com '---'
+                        //se for igual a null entao é um sensor que nunca enviou nenhuma informação, entao vamos preencher o textfield com '---'
                         textViewData.setText("---");
                         textViewNivel.setText("---");
                         textViewTemperatura.setText("---");

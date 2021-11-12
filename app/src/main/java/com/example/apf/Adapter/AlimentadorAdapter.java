@@ -108,11 +108,12 @@ public class AlimentadorAdapter extends RecyclerView.Adapter<AlimentadorAdapter.
             @Override
             public void onClick(View view) {
                 //Toast.makeText(context, "Dieta selecionanda: "  + dietas.get(position).getNome(), Toast.LENGTH_SHORT).show();
-                if(getPetFromID(alimentadores.get(position).getIdpet())!=null && getDietaFromID(alimentadores.get(position).getIddieta())!=null) {
+
+                //if(getPetFromID(alimentadores.get(position).getIdpet())!=null && getDietaFromID(alimentadores.get(position).getIddieta())!=null) {
                     opcoesDoAlimentador(alimentadores.get(position));
-                }else{
-                    Toast.makeText(context, "Pet ou Dieta invalida atribuida ao alimentador", Toast.LENGTH_SHORT).show();
-                }
+                //}else{
+                //    Toast.makeText(context, "Pet ou Dieta invalida atribuida ao alimentador", Toast.LENGTH_SHORT).show();
+                //}
             }
         });
 

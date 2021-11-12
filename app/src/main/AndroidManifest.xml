@@ -3,6 +3,7 @@
     package="com.example.apf">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.APF"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".GraficoLineActivity"
+            android:exported="true" />
+        <activity
+            android:name=".GraficoBarActivity"
+            android:exported="true" />
         <activity
             android:name=".UsuarioActivity"
             android:exported="true" />

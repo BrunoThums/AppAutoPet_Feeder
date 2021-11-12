@@ -168,11 +168,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
-            android:text="30º"
-            android:textColor="@color/black"
-            android:textSize="15dp"
+                android:text="30º"
+                android:textColor="@color/black"
+                android:textSize="15dp"
 
-            />
+                />
 
         </LinearLayout>
 
@@ -231,14 +231,14 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/liberacao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginRight="2dp"
-                android:background="@drawable/racaocaindo_pequena"
-                android:clickable="true" />
+                <ImageView
+                    android:id="@+id/liberacao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@drawable/racaocaindo_pequena"
+                    android:clickable="true" />
 
                 <TextView
                     android:id="@+id/textViewLabelLiberacao"
@@ -327,18 +327,55 @@
 
         </LinearLayout>
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="5dp">
+
+            <Button
+                android:id="@+id/btn_gerar_grafico_umidade_temperatura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Umidade/Temp"
+                android:layout_centerInParent="true"
+                android:drawableLeft="@drawable/grafico_icone_25_35"
+                android:textSize="10dp"
+                />
+
+            <Button
+                android:id="@+id/btn_gerar_grafico_liberacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Liberações"
+                android:layout_centerInParent="true"
+                android:textSize="10dp"
+                android:drawableLeft="@drawable/grafico_icone_25_35"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            android:layout_marginTop="10dp">
 
             <Button
                 android:id="@+id/btn_atualizar_leitura_sensores"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Atualizar"
-                android:layout_centerInParent="true"/>
+                android:textSize="10dp"
+                android:drawableLeft="@drawable/refresh" />
+
+
+
+
         </LinearLayout>
 
     </LinearLayout>
