@@ -2,9 +2,16 @@ package com.example.apf;
 
 import static com.example.apf.Utils.formataCelular;
 import static com.example.apf.Utils.formataData;
+import static com.example.apf.Utils.isDataValida;
+import static com.example.apf.Utils.isEmailValido;
+import static com.example.apf.Utils.isNomeValido;
+import static com.example.apf.Utils.isSenhaValida;
+
+import static com.example.apf.Utils.isSenhasIguais;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
@@ -42,8 +49,10 @@ public class UsuarioActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(Html.fromHtml("<font color=\"black\">"+getString(R.string.app_name)+"</font>"));
 
         Intent intent = getIntent();
-        String usuarioAserModificado = intent.getStringExtra("usuario"); //essa activity tem dois comportamentos, ela pode ser usada para criar um novo usuario ou para alterar as configurações de um usuario,
-                                                                 // se "usuario" recebido por parametro é igual a null então é porque estamos criando um usuario novo caso contrario estamos alterando as configurações de um usuario ja existente
+        //Activity bicomportamental:
+        // Criar um novo usuario (caso usuário = null)
+        // Ou alterar as configurações de um usuario (se usuário != null)
+        String usuarioAserModificado = intent.getStringExtra("usuario");
 
         Button btnCriarModificarConta = (Button) findViewById(R.id.btnCriarModificarContaTelaCriarConta);
         EditText editTextNome = (EditText) findViewById(R.id.txtNome);
@@ -75,10 +84,21 @@ public class UsuarioActivity extends AppCompatActivity {
         }
 
         btnCriarModificarConta.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("NewApi")
             @Override
             public void onClick(View view) {
-                //testa se as senhas são iguais e diferente de em branco
-                if(editTextTextSenha1.getText().toString().equals(editTextTextSenha2.getText().toString()) && !editTextTextSenha1.getText().toString().equals("") ){
+
+                //verifica:
+                //se as senhas são validas e não nulas
+                //se as senhas são iguais
+                //se a data é válida
+                //se o email é valido
+                //se o nome é valido
+                if( isSenhaValida(editTextTextSenha1) && isSenhaValida(editTextTextSenha2) &&
+                    isSenhasIguais(editTextTextSenha1, editTextTextSenha2) &&
+                    //isDataValida(editTextDataNascimento) &&
+                    isEmailValido(editTextEmail)&&
+                    isNomeValido(editTextNome)){
 
                     //se jsonUsuarioAserModificado!=null entao estamos alterando as configurações de um usuario que ja existe, logo esse usuario possui uma ID
                     if(jsonUsuarioAserModificado!=null){
@@ -95,15 +115,33 @@ public class UsuarioActivity extends AppCompatActivity {
                     usuario.setCelular(editTextCelular.getText().toString());
                     Submit(usuario);
 
-                }else{
-                    Toast.makeText(getApplicationContext(), "As senhas não conferem ou está em branco", Toast.LENGTH_LONG).show();
+                }else {
+                    //Nome ok?
+                    if(!isNomeValido(editTextNome)) {
+                        Toast.makeText(getApplicationContext(), "O campo nome é obrigatório!", Toast.LENGTH_LONG).show();
+                    }
+                    //Data Nascimento ok?
+                    /*else if (!isDataValida(editTextDataNascimento)) {
+                        Toast.makeText(getApplicationContext(), "Data inválida!", Toast.LENGTH_LONG).show();
+                    }*/
+                    //Email ok?
+                    else if (!isEmailValido(editTextEmail)) {
+                        Toast.makeText(getApplicationContext(), "Email inválido!", Toast.LENGTH_LONG).show();
+                    }
+                    //Senhas ok?
+                    else if (!isSenhaValida(editTextTextSenha1) && !isSenhaValida(editTextTextSenha2)) {
+                    Toast.makeText(getApplicationContext(), "A senha não é valida. Precisa ter no mínimo 5 caracteres", Toast.LENGTH_LONG).show();
+                    }
+                    //Senhas iguais?
+                    else if (!isSenhasIguais(editTextTextSenha1, editTextTextSenha2)) {
+                        Toast.makeText(getApplicationContext(), "As senhas não conferem!", Toast.LENGTH_LONG).show();
+                    }
                 }
-
-
             }
         });
-
     }
+
+
 
     private void Submit(Usuario usuario) {
 
@@ -195,4 +233,6 @@ public class UsuarioActivity extends AppCompatActivity {
         }
         return "";
     }
+
+
 }

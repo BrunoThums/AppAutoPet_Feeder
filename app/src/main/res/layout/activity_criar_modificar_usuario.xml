@@ -34,6 +34,8 @@
             android:hint="@string/nome"
             android:inputType="textPersonName"
             android:minHeight="48dp"
+            android:password="false"
+            android:phoneNumber="false"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="98dp" />
 
