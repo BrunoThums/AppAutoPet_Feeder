@@ -1,6 +1,7 @@
 package com.example.apf;
 
 import android.os.Build;
+import android.util.Log;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -9,10 +10,13 @@ import androidx.annotation.RequiresApi;
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.DateTimeException;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 import java.time.format.ResolverStyle;
+import java.util.Date;
 
 public class Utils {
     //formata uma string para o formato de celular - (DDD) e 9 digitos
@@ -29,18 +33,48 @@ public class Utils {
         data.addTextChangedListener(maskTextWatcher);
     }
 
+
     //verifica se a data é valida
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static boolean isDataValida(@NonNull EditText dataImportada) {
+        // Configure o SimpleDateFormat no onCreate ou onCreateView
+        String pattern = "dd/MM/yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+
+        sdf.setLenient(false);
+
+        // Durante a confirmacao de cadastro, faça a validacao
+
+        String data =dataImportada.getText().toString();
+
         try {
-            //LocalDate dataAtual = LocalDate.now();
-            DateTimeFormatter parser = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-                    .withResolverStyle(ResolverStyle.STRICT);
-            LocalDate data = LocalDate.parse(dataImportada.getText(), parser);
-            //a data de nascimento PRECISA ser menor que o ano atual;
+            Date date = sdf.parse(data);
             return true;
-        } catch (DateTimeException ex) {
-            //se der errado = a data é falsa
+            // Data formatada corretamente
+        } catch (ParseException e) {
+            // Erro de parsing!!
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean isDataValida(String dataImportada) {
+        // Configure o SimpleDateFormat no onCreate ou onCreateView
+        String pattern = "dd/MM/yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+
+        sdf.setLenient(false);
+
+        // Durante a confirmacao de cadastro, faça a validacao
+
+        String data =dataImportada;
+
+        try {
+            Date date = sdf.parse(data);
+            return true;
+            // Data formatada corretamente
+        } catch (ParseException e) {
+            // Erro de parsing!!
+            e.printStackTrace();
             return false;
         }
     }
@@ -73,10 +107,23 @@ public class Utils {
         }
         return false;
     }
+    public static boolean isEmailValido(String email) {
+        if (email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
+            return true;
+        }
+        return false;
+    }
 
     //Verifica se a é maior que 4 e não nula
     public static boolean isSenhaValida(@NonNull EditText password) {
         String senha = password.getText().toString();
+        if(!senha.isEmpty() && senha.length()>4){
+            return true;
+        }
+        return false;
+    }
+    public static boolean isSenhaValida(String password) {
+        String senha = password;
         if(!senha.isEmpty() && senha.length()>4){
             return true;
         }
@@ -92,10 +139,25 @@ public class Utils {
         }
         return false;
     }
+    public static boolean isSenhasIguais(String password1, String password2){
+        String senha1 = password1;
+        String senha2 = password2;
+        if(senha1.equals(senha2)){
+            return true;
+        }
+        return false;
+    }
 
     //Verifica se nome não é nulo e é possui ao menos 2 letras
     public static boolean isNomeValido(EditText editTextNome){
         String nome = editTextNome.getText().toString();
+        if(!nome.isEmpty() && nome.length()>1){
+            return true;
+        }
+        return false;
+    }
+    public static boolean isNomeValido(String editTextNome){
+        String nome = editTextNome;
         if(!nome.isEmpty() && nome.length()>1){
             return true;
         }
