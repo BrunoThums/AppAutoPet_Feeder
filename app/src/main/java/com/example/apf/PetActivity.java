@@ -1,5 +1,11 @@
 package com.example.apf;
 
+import static com.example.apf.Utils.isDataValida;
+import static com.example.apf.Utils.isEmailValido;
+import static com.example.apf.Utils.isNomeValido;
+import static com.example.apf.Utils.isSenhaValida;
+import static com.example.apf.Utils.isSenhasIguais;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -149,15 +155,30 @@ public class PetActivity extends AppCompatActivity implements SwipeRefreshLayout
         btnsalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Pet novoPet = new Pet();
-                novoPet.setNome(eTxtnome.getText().toString());
-                novoPet.setAnimal(eTxtanimal.getText().toString());
-                novoPet.setDtnascimento(eTxtdtnascimento.getText().toString());
-                novoPet.setRaca(eTxtraca.getText().toString());
-                novoPet.setPorte(eTxtporte.getText().toString());
-                novoPet.setIdusuario(Integer.parseInt(idUsuarioRecebido));
-                Submit(novoPet);
+                if(isNomeValido(eTxtnome) &&
+                        isDataValida(eTxtdtnascimento) &&
+                        isNomeValido(eTxtanimal)) {
+                    Pet novoPet = new Pet();
+                    novoPet.setNome(eTxtnome.getText().toString());
+                    novoPet.setAnimal(eTxtanimal.getText().toString());
+                    novoPet.setDtnascimento(eTxtdtnascimento.getText().toString());
+                    novoPet.setRaca(eTxtraca.getText().toString());
+                    novoPet.setPorte(eTxtporte.getText().toString());
+                    novoPet.setIdusuario(Integer.parseInt(idUsuarioRecebido));
+                    Submit(novoPet);
+                } else {
+                    if(!isNomeValido(eTxtnome)) {
+                        Toast.makeText(getApplicationContext(), "O campo nome deve conter ao menos 2 caracteres!", Toast.LENGTH_LONG).show();
+                    }
+                    //Data Nascimento ok?
+                    else if (!isDataValida(eTxtdtnascimento)) {
+                        Toast.makeText(getApplicationContext(), "Data inválida!", Toast.LENGTH_LONG).show();
+                    }
+                    //Email ok?
+                    else if (!isEmailValido(eTxtanimal)) {
+                        Toast.makeText(getApplicationContext(), "O campo animal deve conter ao menos 2 caracteres!", Toast.LENGTH_LONG).show();
+                    }
+                }
             }
         });
 

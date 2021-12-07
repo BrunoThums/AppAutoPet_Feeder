@@ -94,11 +94,7 @@ public class UsuarioActivity extends AppCompatActivity {
                 //se a data é válida
                 //se o email é valido
                 //se o nome é valido
-                if( isSenhaValida(editTextTextSenha1) && isSenhaValida(editTextTextSenha2) &&
-                    isSenhasIguais(editTextTextSenha1, editTextTextSenha2) &&
-                    //isDataValida(editTextDataNascimento) &&
-                    isEmailValido(editTextEmail)&&
-                    isNomeValido(editTextNome)){
+                if(isCamposValidos()){
 
                     //se jsonUsuarioAserModificado!=null entao estamos alterando as configurações de um usuario que ja existe, logo esse usuario possui uma ID
                     if(jsonUsuarioAserModificado!=null){
@@ -116,26 +112,40 @@ public class UsuarioActivity extends AppCompatActivity {
                     Submit(usuario);
 
                 }else {
-                    //Nome ok?
-                    if(!isNomeValido(editTextNome)) {
-                        Toast.makeText(getApplicationContext(), "O campo nome é obrigatório!", Toast.LENGTH_LONG).show();
-                    }
-                    //Data Nascimento ok?
-                    /*else if (!isDataValida(editTextDataNascimento)) {
-                        Toast.makeText(getApplicationContext(), "Data inválida!", Toast.LENGTH_LONG).show();
-                    }*/
-                    //Email ok?
-                    else if (!isEmailValido(editTextEmail)) {
-                        Toast.makeText(getApplicationContext(), "Email inválido!", Toast.LENGTH_LONG).show();
-                    }
-                    //Senhas ok?
-                    else if (!isSenhaValida(editTextTextSenha1) && !isSenhaValida(editTextTextSenha2)) {
+                    feedbackUser();
+                }
+            }
+            private boolean isCamposValidos(){
+                if(isSenhaValida(editTextTextSenha1) && isSenhaValida(editTextTextSenha2) &&
+                        isSenhasIguais(editTextTextSenha1, editTextTextSenha2) &&
+                        isDataValida(editTextDataNascimento) &&
+                        isEmailValido(editTextEmail)&&
+                        isNomeValido(editTextNome)){
+                    return true;
+                }
+                return false;
+            }
+
+            private void feedbackUser(){
+                //Nome ok?
+                if(!isNomeValido(editTextNome)) {
+                    Toast.makeText(getApplicationContext(), "O campo nome deve conter ao menos 2 caracteres!", Toast.LENGTH_LONG).show();
+                }
+                //Data Nascimento ok?
+                else if (!isDataValida(editTextDataNascimento)) {
+                    Toast.makeText(getApplicationContext(), "Data inválida!", Toast.LENGTH_LONG).show();
+                }
+                //Email ok?
+                else if (!isEmailValido(editTextEmail)) {
+                    Toast.makeText(getApplicationContext(), "Email inválido!", Toast.LENGTH_LONG).show();
+                }
+                //Senhas ok?
+                else if (!isSenhaValida(editTextTextSenha1) && !isSenhaValida(editTextTextSenha2)) {
                     Toast.makeText(getApplicationContext(), "A senha não é valida. Precisa ter no mínimo 5 caracteres", Toast.LENGTH_LONG).show();
-                    }
-                    //Senhas iguais?
-                    else if (!isSenhasIguais(editTextTextSenha1, editTextTextSenha2)) {
-                        Toast.makeText(getApplicationContext(), "As senhas não conferem!", Toast.LENGTH_LONG).show();
-                    }
+                }
+                //Senhas iguais?
+                else if (!isSenhasIguais(editTextTextSenha1, editTextTextSenha2)) {
+                    Toast.makeText(getApplicationContext(), "As senhas não conferem!", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -233,6 +243,8 @@ public class UsuarioActivity extends AppCompatActivity {
         }
         return "";
     }
+
+
 
 
 }
