@@ -1,5 +1,6 @@
 package com.example.apf;
 
+import static com.example.apf.Utils.formataData;
 import static com.example.apf.Utils.isDataValida;
 import static com.example.apf.Utils.isEmailValido;
 import static com.example.apf.Utils.isNomeValido;
@@ -137,6 +138,7 @@ public class PetActivity extends AppCompatActivity implements SwipeRefreshLayout
         txtViewtitulo = (TextView)  dialog.findViewById(R.id.txtitulo_modifica_pet);
         txtViewtitulo.setText("Adicionar Pet");
 
+
         txtViewclose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -149,6 +151,8 @@ public class PetActivity extends AppCompatActivity implements SwipeRefreshLayout
         eTxtdtnascimento = (EditText) dialog.findViewById(R.id.dtnascimento_modifica_pet);
         eTxtraca = (EditText) dialog.findViewById(R.id.raca_modifica_pet);
         eTxtporte = (EditText) dialog.findViewById(R.id.porte_modifica_pet);
+
+        formataData(eTxtdtnascimento);
 
         btnsalvar = (Button)  dialog.findViewById(R.id.btnsubmit_modifica_pet);
 

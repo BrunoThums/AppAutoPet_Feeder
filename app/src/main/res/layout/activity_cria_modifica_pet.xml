@@ -47,14 +47,15 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         />
+
     <EditText
         android:id="@+id/dtnascimento_modifica_pet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Data_Nascimento(dd/mm/aaaa)"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        />
+        android:hint="Data Nascimento(dd/mm/aaaa)"
+        android:inputType="date" />
     <EditText
         android:id="@+id/raca_modifica_pet"
         android:layout_width="match_parent"
